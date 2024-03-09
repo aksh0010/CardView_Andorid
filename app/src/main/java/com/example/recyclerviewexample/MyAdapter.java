@@ -64,77 +64,39 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     switch (buttonText) {
                         case "Red":
                             newColor = Color.RED;
+                            textView.setTextColor(newColor);
+                            buttonView.setText("White");
                             break;
                         case "Yellow":
                             newColor = Color.YELLOW;
+                            textView.setTextColor(newColor);
+                            buttonView.setText("White");
                             break;
                         case "Black":
                             newColor = Color.BLACK;
+                            textView.setTextColor(newColor);
+                            buttonView.setText("White");
                             break;
                         case "White":
+                            // for first card
                             newColor = Color.WHITE;
+                            if (textView.getText().equals("Card1") || textView.getText().equals("Text1"))
+                            {
+                                textView.setTextColor(newColor);
+                                buttonView.setText("Red");
+                            } else   if (textView.getText().equals("Card2") || textView.getText().equals("Text2"))
+                            {
+                                textView.setTextColor(newColor);
+                                buttonView.setText("Yellow");
+                            } else   if (textView.getText().equals("Card3") || textView.getText().equals("Text3"))
+                            {
+                                textView.setTextColor(newColor);
+                                buttonView.setText("Black");
+                            }
+
                             break;
                     }
-
-                    // Set the text color of the textView
-                    textView.setTextColor(newColor);
-                    // Toggle the button text
-                    if (newColor == Color.WHITE) {
-                        // If the new color is white, set the button text to the previous color
-                        buttonView.setText(buttonText);
-                    } else {
-                        // If the new color is not white, set the button text to white
-                        buttonView.setText("White");
-                    }
                 }
-
-
-
-
-
-//
-//
-//                    String which_button = buttonView.getText().toString();
-//                    if(which_button.equals("Red")){
-//                        if (buttonView.getText().equals("Red")){
-//
-//                            textView.setTextColor(Color.RED);
-//                            buttonView.setText("White");
-//                        }
-//                        else if(buttonView.getText().equals("White")) {
-//                            textView.setTextColor(Color.WHITE);
-//                            buttonView.setText("Red");
-//                        }
-//
-//                    }
-//                    if(which_button.equals("Yellow")){
-//                        if (buttonView.getText().equals("Yellow")){
-//
-//                            textView.setTextColor(Color.YELLOW);
-//                            buttonView.setText("White");
-//                        }
-//                        else if(buttonView.getText().equals("White")) {
-//                            textView.setTextColor(Color.WHITE);
-//                            buttonView.setText("Yellow");
-//                        }
-//
-//                    }    if(which_button.equals("Black")){
-//                        if (buttonView.getText().equals("Black")){
-//
-//                            textView.setTextColor(Color.BLACK);
-//                            buttonView.setText("White");
-//                        }
-//                        else if(buttonView.getText().equals("White")) {
-//                            textView.setTextColor(Color.WHITE);
-//                            buttonView.setText("Black");
-//                        }
-//
-//                    }
-//
-//
-//
-//
-//                }
             });
 
             textView.setOnClickListener(new View.OnClickListener() {
@@ -147,6 +109,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                         textView.setText("Text2");
                     }else if(textView.getText().equals("Card3")){
                         textView.setText("Text3");
+                    } else
+                    if(textView.getText().equals("Text1")){
+                        textView.setText("Card1");
+                    } else if (textView.getText().equals("Text2")) {
+                        textView.setText("Card2");
+                    }else if(textView.getText().equals("Text3")){
+                        textView.setText("Card4");
                     }
 
                 }
